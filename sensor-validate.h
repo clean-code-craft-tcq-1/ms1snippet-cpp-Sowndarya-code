@@ -7,7 +7,7 @@ bool validateCurrentreadings(double* values, int numOfValues);
 
 enum class typeOfReading{
  SOCReading,
-CurrentReadingc
+CurrentReading
 };
 
 bool generalValidation(double* values, int numOfValues, typeOfReading type);
