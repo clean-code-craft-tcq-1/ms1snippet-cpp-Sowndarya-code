@@ -14,3 +14,9 @@ TEST_CASE("reports error when current jumps abruptly") {
   int numOfCurReadings = sizeof(currentReadings) / sizeof(currentReadings[0]);
   REQUIRE(validateSOCreadings(currentReadings, numOfCurReadings) == false);
 }
+
+TEST_CASE("reports error when current jumps abruptly") {
+  double currentReadings[] = {};
+  int numOfCurReadings = sizeof(currentReadings) / sizeof(currentReadings[0]);
+  REQUIRE(validateSOCreadings(currentReadings, numOfCurReadings) == false);
+}
