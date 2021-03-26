@@ -1,28 +1,30 @@
 #include "sensor-validate.h"
 
-bool _give_me_a_good_name(double value, double nextValue, double maxDelta) {
+bool isDifferenceOkay(double value, double nextValue, double maxDelta) {
   if(nextValue - value > maxDelta) {
     return false;
   }
   return true;
 }
-
-bool validateSOCreadings(double* values, int numOfValues) {
+bool generalValidation(double* values, int numOfValues, typeOfReading type) {
   int lastButOneIndex = numOfValues - 1;
   for(int i = 0; i < lastButOneIndex; i++) {
-    if(!_give_me_a_good_name(values[i], values[i + 1], 0.05)) {
-      return false;
+     if(!isDifferenceOkay(values[i], values[i + 1], maxDelta[type])) {
+             return false;
     }
   }
   return true;
 }
+bool validateSOCreadings(double* values, int numOfValues) {
+  bool SOCvalidationResult = false;
+  if(values != nullptr)
+  SOCvalidationResult = generalValidation(values, numOfValues, SOCReading);
+  return SOCvalidationResult;
+}
 
 bool validateCurrentreadings(double* values, int numOfValues) {
-  int lastButOneIndex = numOfValues - 1;
-  for(int i = 0; i < lastButOneIndex; i++) {
-    if(!_give_me_a_good_name(values[i], values[i + 1], 0.1)) {
-      return false;
-    }
-  }
-  return true;
+  bool CurrentvalidationResult = false;
+  if(values != nullptr)
+  CurrentvalidationResult = generalValidation(values, numOfValues, CurrentReading);
+  return CurrentvalidationResult;
 }
