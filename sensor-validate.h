@@ -9,3 +9,5 @@ enum class typeOfReading{
  SOCReading,
 CurrentReadingc
 };
+
+bool generalValidation(double* values, int numOfValues, typeOfReading type);
