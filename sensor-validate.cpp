@@ -9,12 +9,11 @@ bool isDifferenceOkay(double value, double nextValue, double maxDelta) {
 bool generalValidation(double* values, int numOfValues, typeOfReading type) {
   int lastButOneIndex = numOfValues - 1;
   //double genMaxDelta = (type == typeOfReading::SOCReading) ? 0.05 : 0.1;
-  if(values != nullptr){
   for(int i = 0; i < lastButOneIndex; i++) {
      if(!isDifferenceOkay(values[i], values[i + 1], maxDelta[type])) {
              return false;
     }
-  }}
+  }
   return true;
 }
 bool validateSOCreadings(double* values, int numOfValues) {
@@ -25,6 +24,7 @@ bool validateSOCreadings(double* values, int numOfValues) {
     //}
   //}
   //return true;
+  if(values != nullptr)
   bool validationResult = generalValidation(values, numOfValues, SOCReading);
   return validationResult;
 }
@@ -37,6 +37,7 @@ bool validateCurrentreadings(double* values, int numOfValues) {
     //}
   //}
   //return true;
+  if(values != nullptr)
   bool validationResult = generalValidation(values, numOfValues, CurrentReading);
   return validationResult;
 }
