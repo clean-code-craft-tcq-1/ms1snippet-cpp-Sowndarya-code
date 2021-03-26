@@ -10,9 +10,6 @@ enum typeOfReading{
 CurrentReading
 };
 
-enum maxDelta {
- 0.05,
- 0.1
-};
+int maxDelta[] = {0.05,0.1};
 
 bool generalValidation(double* values, int numOfValues, typeOfReading type);
