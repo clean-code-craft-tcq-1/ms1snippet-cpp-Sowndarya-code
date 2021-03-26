@@ -8,7 +8,7 @@ bool _give_me_a_good_name(double value, double nextValue, double maxDelta) {
 }
 bool generalValidation(double* values, int numOfValues, typeOfReading type) {
   int lastButOneIndex = numOfValues - 1;
-  double genMaxDelta = (type == typeOfReading::SOCReading) ? 0.05 : 0.1;
+  //double genMaxDelta = (type == typeOfReading::SOCReading) ? 0.05 : 0.1;
   for(int i = 0; i < lastButOneIndex; i++) {
      if(!_give_me_a_good_name(values[i], values[i + 1], genMaxDelta)) {
              return false;
@@ -24,7 +24,7 @@ bool validateSOCreadings(double* values, int numOfValues) {
     //}
   //}
   //return true;
-  bool validationResult = generalValidation(values, numOfValues, typeOfReading::SOCReading);
+  bool validationResult = generalValidation(values, numOfValues, SOCReading);
   return validationResult;
 }
 
@@ -36,6 +36,6 @@ bool validateCurrentreadings(double* values, int numOfValues) {
     //}
   //}
   //return true;
-  bool validationResult = generalValidation(values, numOfValues, typeOfReading::CurrentReading);
+  bool validationResult = generalValidation(values, numOfValues, CurrentReading);
   return validationResult;
 }
