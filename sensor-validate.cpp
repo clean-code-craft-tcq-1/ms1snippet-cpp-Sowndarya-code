@@ -1,6 +1,6 @@
 #include "sensor-validate.h"
 
-bool _give_me_a_good_name(double value, double nextValue, double maxDelta) {
+bool isDifferenceOkay(double value, double nextValue, double maxDelta) {
   if(nextValue - value > maxDelta) {
     return false;
   }
