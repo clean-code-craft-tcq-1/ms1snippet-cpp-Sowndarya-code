@@ -5,9 +5,14 @@ bool validateSOCreadings(double* values, int numOfValues);
 
 bool validateCurrentreadings(double* values, int numOfValues);
 
-enum class typeOfReading{
+enum typeOfReading{
  SOCReading,
 CurrentReading
+};
+
+enum maxDelta {
+ 0.05,
+ 0.1
 };
 
 bool generalValidation(double* values, int numOfValues, typeOfReading type);
