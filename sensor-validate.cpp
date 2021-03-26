@@ -24,7 +24,7 @@ bool validateSOCreadings(double* values, int numOfValues) {
     //}
   //}
   //return true;
-  bool SOCvalidationResult;
+  bool SOCvalidationResult = false;
   if(values != nullptr)
   SOCvalidationResult = generalValidation(values, numOfValues, SOCReading);
   return SOCvalidationResult;
@@ -38,7 +38,7 @@ bool validateCurrentreadings(double* values, int numOfValues) {
     //}
   //}
   //return true;
-  bool CurrentvalidationResult;
+  bool CurrentvalidationResult = false;
   if(values != nullptr)
   CurrentvalidationResult = generalValidation(values, numOfValues, CurrentReading);
   return CurrentvalidationResult;
